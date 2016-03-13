@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-import org.apache.log4j.BasicConfigurator;
+
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-@WebServlet("/log")
+@WebServlet("/final")
 public class FirstServletHtml extends HttpServlet implements Servlet
 {
     static Logger logger = Logger.getLogger(FirstServletHtml.class);
@@ -25,7 +25,7 @@ public class FirstServletHtml extends HttpServlet implements Servlet
     }
 
     public void init() throws ServletException {
-        
+
     }
 
     protected void doGet(HttpServletRequest request,
@@ -34,8 +34,8 @@ public class FirstServletHtml extends HttpServlet implements Servlet
     {
 
 
-//--------------------------------------------------------------------------------------------
-        String fileName = "pages\\Carousel Template · Bootstrap.htm";
+
+        String fileName = "webapps\\logwithhtml\\Carousel Template · Bootstrap.htm";
 
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             String htmString="";
@@ -53,24 +53,6 @@ public class FirstServletHtml extends HttpServlet implements Servlet
                 logger.info("Your IP adress is: " + request.getRemoteAddr());
                 logger.info("Askable resource is: "+ this.getClass().getSimpleName());
 
-
-
- //-------------------------------------------------------------------------------------------------
-
-        /*response.setContentType("text/html");
-        response.getWriter().print("This is " + this.getClass().getName() + ", using the GET method <br>");
-        response.getWriter().print("Servlet config: " + this.getServletConfig() + ", using the GET method <br>");
-        response.getWriter().print("Your IP adress is: " + request.getRemoteAddr() + "<br>");*/
-
-
-        /*logger.info("Hello from Log4j!!!");
-        logger.info("Connection was established with " + request.getRemoteAddr());
-        logger.info("There are examples of different log-message levels:");
-        logger.debug("- Debug level message");
-        logger.info("- Info level message");
-        logger.warn("- Warn level message");
-        logger.error("- Error level message");
-        logger.fatal("- Fatal level message");*/
 
     }
 }
